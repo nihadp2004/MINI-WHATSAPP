@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mini_whatsapp_/screen_signup.dart';
 
-class ScreenLogin extends StatelessWidget {
-  ScreenLogin({super.key});
+class ScreenSignup extends StatelessWidget {
+  ScreenSignup({super.key});
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -11,7 +10,12 @@ class ScreenLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Color(0xFF075E54)),
+      appBar: AppBar(
+        toolbarHeight:65,
+        backgroundColor: Color(0xFF075E54),
+        foregroundColor: Colors.white,
+      ),
+
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Column(
@@ -21,17 +25,23 @@ class ScreenLogin extends StatelessWidget {
             SizedBox(
               width: 300,
               height: 50,
+
               child: TextField(
                 controller: emailController,
                 decoration: InputDecoration(
                   hintText: 'type email',
+                  filled: true,
+                  fillColor: Colors.white,
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
               ),
             ),
+
             SizedBox(height: 10),
+
             SizedBox(
               width: 300,
               height: 50,
@@ -40,53 +50,28 @@ class ScreenLogin extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'type password',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
+
+                      borderRadius: BorderRadius.circular(30),
                   ),
                 ),
               ),
             ),
+
             SizedBox(height: 30),
+
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(Color(0xFF075E54)),
                 minimumSize: WidgetStatePropertyAll(Size(300, 50)),
               ),
               child: Text(
-                'LOG IN',
+                'Submit',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onPressed: () {
-                if (emailController.text == 'hello@gmail.com' &&
-                    passwordController.text == '123') {
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('enter valid email or password')),
-                  );
-                }
-              },
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Color(0xFF075E54)),
-                minimumSize: WidgetStatePropertyAll(Size(300, 50)),
-              ),
-              child: Text(
-                'SIGN UP',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ScreenSignup()),
-                );
-              },
+              onPressed: () {},
             ),
           ],
         ),
@@ -94,3 +79,4 @@ class ScreenLogin extends StatelessWidget {
     );
   }
 }
+
